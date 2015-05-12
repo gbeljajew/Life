@@ -5,6 +5,7 @@
  */
 package bin;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -102,7 +103,7 @@ public class GamePanel extends JPanel
             if(timer==25000)
                 timer = 0;
             
-            if(timer%10==0)
+            if(timer%20==0)
             {
                 setDeath();
                 setBorn();
@@ -134,8 +135,18 @@ public class GamePanel extends JPanel
         g.draw3DRect(955, 5, 40, 20, true);
         g.draw3DRect(955, 35, 40, 20, true);
         
+        if(runing)
+        {
+            Color color = g.getColor();
+            g.setColor(Color.red);
+            g.fillRect(955, 5, 40, 20);
+            g.setColor(color);
+        }
+        
         g.drawString("S", 970, 20);
         g.drawString("C", 970, 50);
+        
+        
         
     }
     
